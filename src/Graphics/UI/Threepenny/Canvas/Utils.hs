@@ -21,3 +21,7 @@ scale x y c = do
 
 arcNegative :: Point -> Double -> Double -> Double -> Canvas -> UI ()
 arcNegative p d1 d2 d3 = arc' p d1 d2 d3 True
+
+curveTo :: Double -> Double -> Double -> Double -> Double -> Double -> Canvas -> UI ()
+curveTo a1 a2 a3 a4 a5 a6 c =
+  runFunction $ ffi "%1.getContext('2d').bezierCurveTo(%2, %3, %4, %5, %6, %7);" c a1 a2 a3 a4 a5 a6
